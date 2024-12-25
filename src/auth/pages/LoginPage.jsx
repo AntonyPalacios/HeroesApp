@@ -6,10 +6,11 @@ export const LoginPage = () => {
     const navigate = useNavigate();
     const {login} = useContext(AuthContext);
     const onLogin = () => {
-        login('Antony Palacios');
-        navigate("/",{
+        const lastPathname = localStorage.getItem('lastPathname') || '/'
+        navigate(lastPathname,{
             replace: true,
         });
+        login('Antony Palacios');
     }
     return (
         <div className="container mt-5">
